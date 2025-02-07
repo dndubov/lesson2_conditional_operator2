@@ -43,15 +43,14 @@ public class Main {
         int deliveryDistance = scanner.nextInt();
         int deliveryDays = 1;
         System.out.println("Результат задачи 4:");
-        if (deliveryDistance > 20) {
-            deliveryDays++;
-        }
-        if (deliveryDistance > 60) {
-            deliveryDays++;
-        }
         if (deliveryDistance > 100) {
             System.out.println("Доставка не осуществляется");
         } else {
+            if (deliveryDistance > 60) {
+                deliveryDays += 2;
+            } else if (deliveryDistance > 20) {
+                deliveryDays++;
+            }
             System.out.println("Потребуется дней: " + deliveryDays);
         }
 
@@ -59,31 +58,29 @@ public class Main {
         System.out.print("Введите номер месяца: ");
         int monthNumber = scanner.nextInt();
         System.out.println("Результат задачи 5:");
-        if (monthNumber < 1 || monthNumber > 12) {
-            System.out.println("Некорректный номер месяца");
-        } else {
-            switch (monthNumber) {
-                case 12:
-                case 1:
-                case 2:
-                    System.out.println("Зима");
-                    break;
-                case 3:
-                case 4:
-                case 5:
-                    System.out.println("Весна");
-                    break;
-                case 6:
-                case 7:
-                case 8:
-                    System.out.println("Лето");
-                    break;
-                case 9:
-                case 10:
-                case 11:
-                    System.out.println("Осень");
-                    break;
-            }
+        switch (monthNumber) {
+            case 12:
+            case 1:
+            case 2:
+                System.out.println("Зима");
+                break;
+            case 3:
+            case 4:
+            case 5:
+                System.out.println("Весна");
+                break;
+            case 6:
+            case 7:
+            case 8:
+                System.out.println("Лето");
+                break;
+            case 9:
+            case 10:
+            case 11:
+                System.out.println("Осень");
+                break;
+            default:
+                System.out.println("Некорректный номер месяца");
         }
 
         scanner.close();
